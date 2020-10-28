@@ -1,0 +1,19 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# misc
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+.idea
+.subl
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*/migrations
+
+runserver.sh
+runserver.bat
