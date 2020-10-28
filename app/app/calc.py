@@ -4,5 +4,9 @@ def add(x, y):
     '''
     return x + y
 
+
 def subtract(x, y):
-    pass
+    '''
+    Subtract two numbers
+    '''
+    return y - x
