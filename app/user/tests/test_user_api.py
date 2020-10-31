@@ -35,3 +35,17 @@ class PublicUserApiTests(TestCase):
         user = get_user_model().objects.get(**res.data)
         self.assertTrue(user.check_password(payload['password']))
         self.assertNotIn('password', res.data)
+
+    def test_user_exists(self):
+        '''
+        Test creating a user that already exists fails
+        '''
+        payload = {
+            'email': 'test@example.com',
+            'password': 'password'
+        }
+        create_user(**payload)
+
+        res = self.client.post(CREATE_USER_URL, payload)
+
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
