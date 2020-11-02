@@ -97,3 +97,17 @@ class PublicUserApiTests(TestCase):
 
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_create_token_no_user(self):
+        '''
+        Test that token is not created if user doesn't exist
+        '''
+        payload = {
+            'email': 'test@example.com',
+            'password': 'password'
+        }
+
+        res = self.client.post(TOKEN_URL, payload)
+
+        self.assertNotIn('token', res.data)
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
