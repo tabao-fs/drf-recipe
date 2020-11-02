@@ -13,7 +13,6 @@ db.sqlite3
 *.code-workspace
 *.sublime-project
 *.sublime-workspace
-*/migrations
 
 runserver.sh
 runserver.bat
