@@ -36,3 +36,5 @@ class PrivateTagsApiTests(TestCase):
             'test@example.com',
             'password'
         )
+        self.client = APIClient()
+        self.client.force_authenticate(self.user)
