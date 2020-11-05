@@ -8,9 +8,21 @@ from rest_framework.test import APIClient
 from core.models import Ingredient
 
 
+
+INGREDIENTS_URL = reverse('recipe:ingredient-list')
+
+
 class PublicIngredientsApiTests(TestCase):
     '''
     Test the publicly available ingredients API
     '''
     def setUp(self):
         self.client = APIClient()
+
+    def test_login_required(self):
+        '''
+        Test that login is required to access the endpoint
+        '''
+        res = self.client.get(INGREDIENTS_URL)
+
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
