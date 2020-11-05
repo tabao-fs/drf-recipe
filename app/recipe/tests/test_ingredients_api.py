@@ -64,7 +64,8 @@ class PrivateIngredientsApiTests(TestCase):
             'password'
         )
         Ingredient.objects.create(user=self.user2, name='Test user 2')
-        ingredient = Ingredient.objects.create(user=self.user, name='Test user 1')
+        ingredient = Ingredient.objects.create(
+            user=self.user, name='Test user 1')
 
         res = self.client.get(INGREDIENTS_URL)
 
