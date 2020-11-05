@@ -6,9 +6,10 @@ from core.models import Tag
 from recipe.serializers import TagSerializer
 
 
-class TagViewSet(viewsets.GenericViewSet,
-                 mixins.ListModelMixin,
-                 mixins.CreateModelMixin):
+class TagViewSet(
+        viewsets.GenericViewSet,
+        mixins.ListModelMixin,
+        mixins.CreateModelMixin):
     '''
     Manage tags in the database
     '''
