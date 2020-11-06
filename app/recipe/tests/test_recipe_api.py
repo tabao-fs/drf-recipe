@@ -60,7 +60,6 @@ class PrivateRecipeApiTests(TestCase):
         Test retrieving a list of recipes
         '''
         sample_recipe(user=self.user)
-        sample_recipe(user=self.user)
 
         res = self.client.get(RECIPES_URL)
 

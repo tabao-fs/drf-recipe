@@ -3,7 +3,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from core.models import Tag, Ingredient, Recipe
-from recipe.serializers import TagSerializer, IngredientSerializer, RecipeSerializer
+from recipe.serializers import (
+    TagSerializer, IngredientSerializer, RecipeSerializer
+)
 
 
 class BaseRecipeAttrViewSet(
