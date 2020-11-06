@@ -20,3 +20,11 @@ def sample_recipe(user, **params):
     defaults.update(params)
 
     return Recipe.objects.create(user=user, **defaults)
+
+
+class PublicRecipeApiTests(TestCase):
+    '''
+    Test unauthenticated recipe API access
+    '''
+    def setUp(self):
+        self.client = APIClient()
