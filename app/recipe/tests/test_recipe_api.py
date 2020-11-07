@@ -115,8 +115,8 @@ class PrivateRecipeApiTests(TestCase):
         Test viewing a recipe detail
         '''
         recipe = sample_recipe(user=self.user)
-        recipes.tags.add(sample_tag(user=self.user))
-        recipes.ingredients.add(sample_ingredient(user=self.user))
+        recipe.tags.add(sample_tag(user=self.user))
+        recipe.ingredients.add(sample_ingredient(user=self.user))
 
         url = detail_url(recipe.id)
         res = self.client.get(url)
