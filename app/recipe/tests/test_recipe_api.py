@@ -149,7 +149,7 @@ class PrivateRecipeApiTests(TestCase):
         tag2 = sample_tag(user=self.user, name='Tag 2')
         payload = {
             'title': 'Title',
-            'tags': [tag1.id, tag2.id]
+            'tags': [tag1.id, tag2.id],
             'time_minutes': 60,
             'price': 20.00
         }
@@ -170,7 +170,7 @@ class PrivateRecipeApiTests(TestCase):
         ingredient2 = sample_ingredient(user=self.user, name='Ingredient 2')
         payload = {
             'title': 'Title',
-            'ingredients': [ingredient1.id, ingredient2.id]
+            'ingredients': [ingredient1.id, ingredient2.id],
             'time_minutes': 20,
             'price': 7.00
         }
