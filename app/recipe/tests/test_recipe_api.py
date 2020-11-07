@@ -5,12 +5,19 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Recipe
+from core.models import Recipe, Tag
 
 from recipe.serializers import RecipeSerializer
 
 
 RECIPES_URL = reverse('recipe:recipe-list')
+
+
+def sample_tag(user, name='Tag'):
+    '''
+    Create and return a sample tag
+    '''
+    return Tag.objects.create(user=user, name=name)
 
 
 def sample_recipe(user, **params):
