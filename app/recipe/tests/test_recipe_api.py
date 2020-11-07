@@ -13,6 +13,13 @@ from recipe.serializers import RecipeSerializer
 RECIPES_URL = reverse('recipe:recipe-list')
 
 
+def detail_url(recipe_id):
+    '''
+    Return recipe detail URL
+    '''
+    return reverse('recipe:recipe-detail', args=[recipe_id])
+
+
 def sample_tag(user, name='Tag'):
     '''
     Create and return a sample tag
