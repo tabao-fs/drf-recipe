@@ -5,7 +5,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Recipe, Tag
+from core.models import Recipe, Tag, Ingredient
 
 from recipe.serializers import RecipeSerializer
 
@@ -18,6 +18,13 @@ def sample_tag(user, name='Tag'):
     Create and return a sample tag
     '''
     return Tag.objects.create(user=user, name=name)
+
+
+def sample_ingredient(user, name='Ingredient'):
+    '''
+    Create and return a sample tag
+    '''
+    return Ingredient.objects.create(user=user, name=name)
 
 
 def sample_recipe(user, **params):
