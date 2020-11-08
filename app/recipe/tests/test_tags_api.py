@@ -113,3 +113,28 @@ class PrivateTagsApiTests(TestCase):
         serializer2 = TagSerializer(tag2)
         self.assertIn(serializer1.data, res.data)
         self.assertNotIn(serializer2.data, res.data)
+
+    def test_retrieve_tags_assigned_unique(self):
+        '''
+        Test filtering tags by assigned returns unique items
+        '''
+        tag = Tag.objects.create(user=self.user, name='Tag 1')
+        Tag.objects.create(user=self.user, name='Tag 2')
+        recipe1 = Recipe.objects.create(
+            title='Recipe 1',
+            time_minutes=5,
+            price=3.00,
+            user=self.user
+        )
+        recipe1.tags.add(tag)
+        recipe2 = Recipe.objects.create(
+            title='Recipe 2',
+            time_minutes=3,
+            price=2.00,
+            user=self.user
+        )
+        recipe2.tags.add(tag)
+
+        res = self.client.post(TAGS_URL, {'assigned_only': 1})
+
+        self.assertEqual(len(res.data), 1)
