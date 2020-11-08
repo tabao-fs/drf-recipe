@@ -13,6 +13,13 @@ from recipe.serializers import RecipeSerializer, RecipeDetailSerializer
 RECIPES_URL = reverse('recipe:recipe-list')
 
 
+def image_upload_url(recipe_id):
+    '''
+    Return URL for recipe image upload
+    '''
+    return reverse('recipe:recipe-upload_image', args=[recipe_id])
+
+
 def detail_url(recipe_id):
     '''
     Return recipe detail URL
