@@ -239,3 +239,6 @@ class RecipeImageUploadTests(TestCase):
         self.client = APIClient()
         self.client.force_authenticate(self.user)
         self.recipe = sample_recipe(user=self.user)
+
+    def tearDown(self):
+        self.recipe.image.delete()
